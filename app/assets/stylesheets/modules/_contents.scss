@@ -12,6 +12,30 @@
   width: 300px;
   height: 100%;
   background-color: #bbbbbb;
+  padding: 30px 10px 0 10px; 
+}
+
+.title {
+  color: #333333;
+  font-size: 36px;
+}
+
+.menu {
+  color: #333333;
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+.keisanSheet {
+  color: #333333;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.sekigae {
+  color: #333333;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 .rightSide {
@@ -20,3 +44,34 @@
   background-color: #dddddd;
 }
 
+.header {
+  height: 100px;
+  display: flex;
+  border-bottom: #444477 solid 1px;
+  padding: 20px 20px;
+}
+
+.appName{
+  width: 100%;
+  font-size: 36px;
+  text-align: center;
+  color: #333333;
+  padding: 10px;
+  background-color: #dd11dd;
+}
+
+.printBtns {
+  background-color: #11aaaa;
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  &__btn {
+    margin-right: 5px;
+    font-size: 18px;
+  }
+}
+
+.main {
+  padding: 40px 20px;
+}
