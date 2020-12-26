@@ -14,17 +14,17 @@ window.addEventListener("load", function () {
     let hide = document.getElementsByClassName("hide");
 
     for (let y = 0; y < 2; y++ ){
-      hideRange[y].classList.add(hide[0].classList);
+      hideRange[y].style.display = 'none';
+      // classList.add(hide[0].classList);
     }
-    // console.log(hideRange[1].classList);
-    // console.log(hide[0].classList);
-    // hideRange[1].classList.add(hide[0].classList);
-    console.log(hideRange[1].classList);
-    // window.print();
-    // for (let y = 0; y < 2; y++ ){
-    //   hideRange[y].classList.remove(hide[0].classList);
-    // }
-    // hideRange.classList.remove(hide);
+  console.log(hideRange[1].classList);
+  console.log(hide[0].classList);
+  hideRange[1].classList.add(hide[0].classList);
+  window.print();
+  for (let y = 0; y < 2; y++ ){
+    hideRange[y].classList.remove(hide[0].classList);
+  }
+  hideRange.classList.remove(hide);
   });
 
   let btn = document.getElementById("submit");
@@ -46,7 +46,6 @@ window.addEventListener("load", function () {
         let rand1 = Math.floor( Math.random() * (10 ** (num1 - 1) * 9) + 10 ** (num1 - 1));
         let rand2 = Math.floor( Math.random() * (10 ** (num2 - 1) * 9) + 10 ** (num2 - 1));
         let rand3 = 0
-        console.log (symbol)
         if (symbol == "-") {
           if (rand1 < rand2) {
             rand3 = rand2;
