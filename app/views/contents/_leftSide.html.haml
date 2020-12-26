@@ -1,9 +1,32 @@
 .leftSide
   .title
-    Teacher's Bar
+    Teacher's BAR
   .menu
     menu
-    .keisanSheet
-      + 計算プリント作成
-    .sekigae
-      + 席替えおみくじ
+    %form.keisanSheet{ id: "sheet" } ー 計算プリント作成
+    .keisanSheet__space
+      %select.keisanSheet__select{ id: "num1" }
+        %option{ value: 1 }1桁
+        %option{ value: 2, selected: "selected" }2桁
+        %option{ value: 3 }3桁
+        %option{ value: 4 }4桁
+        %option{ value: 5 }5桁
+      %select.keisanSheet__select{ id: "calc_symbol" }
+        %option{ value: "+", selected: "selected" }+
+        %option{ value: "-" }-
+        %option{ value: "×" }×
+        %option{ value: "÷" }÷
+      %select.keisanSheet__select{ id: "num2" }
+        %option{ value: 1 }1桁
+        %option{ value: 2, selected: "selected" }2桁
+        %option{ value: 3 }3桁
+        %option{ value: 4 }4桁
+        %option{ value: 5 }5桁
+
+      %input.keisanSheet__submit{ id: "submit", type: "submit", value: "問題作成"}
+    -# .sekigae
+    -#   ＋ 歴史人物クイズ
+    -# .sekigae
+    -#   ＋ 体育ワークシート
+    -# .sekigae
+    -#   ＋ 席替えおみくじ
