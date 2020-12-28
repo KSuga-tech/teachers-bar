@@ -10,21 +10,15 @@
 window.addEventListener("load", function () {
   let printBtn = document.getElementById("print");
   printBtn.addEventListener("click", function() {
-    let hideRange = document.querySelectorAll(".leftSide, .header");
+    let hideLeft = document.querySelector(".leftSide");
     let hide = document.getElementsByClassName("hide");
-
-    for (let y = 0; y < 2; y++ ){
-      hideRange[y].style.display = 'none';
+      // hideLeft.style.display = 'none';
       // classList.add(hide[0].classList);
-    }
-  console.log(hideRange[1].classList);
+  console.log(hideLeft.classList);
   console.log(hide[0].classList);
-  hideRange[1].classList.add(hide[0].classList);
+  hideLeft.classList.add(hide[0].classList);
   window.print();
-  for (let y = 0; y < 2; y++ ){
-    hideRange[y].classList.remove(hide[0].classList);
-  }
-  hideRange.classList.remove(hide);
+  hideLeft.classList.remove(hide[0].classList);
   });
 
   let btn = document.getElementById("submit");
