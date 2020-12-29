@@ -11,14 +11,20 @@ window.addEventListener("load", function () {
   let printBtn = document.getElementById("print");
   printBtn.addEventListener("click", function() {
     let hideLeft = document.querySelector(".leftSide");
+    let hideHeader = document.querySelector(".header");
+    let changeRight = document.querySelector(".rightSide");
     let hide = document.getElementsByClassName("hide");
       // hideLeft.style.display = 'none';
       // classList.add(hide[0].classList);
   console.log(hideLeft.classList);
   console.log(hide[0].classList);
   hideLeft.classList.add(hide[0].classList);
+  hideHeader.style.display = 'none';
+  changeRight.style.width = '100%';
   window.print();
   hideLeft.classList.remove(hide[0].classList);
+  hideHeader.style.display = 'flex';
+  changeRight.style.width = 'calc( 100% - 300px )';
   });
 
   let btn = document.getElementById("submit");
@@ -47,13 +53,25 @@ window.addEventListener("load", function () {
             rand1 = rand3;
           }
         }
+
+        let answers = 0
+        if (symbol == '+') {
+          answers = rand1 + rand2;
+        } else if (symbol == '-') {
+          answers = rand1 - rand2;
+        } else if (symbol == '×') {
+          answers = rand1 * rand2;
+        } else {
+          answers = rand1 / rand2;
+        }
+ 
         let html = `
           <div class="mondai__block">
             <div class="mondai__number">
               (${number})
             </div>
             <div class="mondai__siki">
-              ${rand1} ${symbol} ${rand2}
+              ${rand1} ${symbol} ${rand2} <span class="answer"> = ${answers} </span>
             </div>
           </div>
           `
