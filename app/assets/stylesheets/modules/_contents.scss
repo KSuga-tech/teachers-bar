@@ -59,7 +59,12 @@
     padding: 3px;
   }
   &__submit {
-    display: block;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  &__answer {
+    display: none;
     margin-top: 10px;
     font-size: 16px;
   }
