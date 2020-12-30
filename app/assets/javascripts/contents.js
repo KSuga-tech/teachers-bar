@@ -92,4 +92,15 @@ window.addEventListener("load", function () {
       }
     }
   });
+
+  // 答えの表示／非表示を切り替える機能
+  let displayAnswer = document.getElementById("displayAnswer");
+  displayAnswer.addEventListener("click", function () {
+    displayAnswer.setAttribute('value', '答え非表示');
+      let answer = document.querySelectorAll(".answer");
+      answer.forEach(function(aaa){
+        aaa.style.display = 'inline';
+      });
+  });
+
 });
