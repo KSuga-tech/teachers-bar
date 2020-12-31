@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: 'Hiragino Maru Gothic Pro';
+}
+
+.wrapper {
+  // width: 100vw;
+  // height: 100vh;
+  display: flex;
+  font-family: 'Hiragino Maru Gothic Pro';
+}
+
+
+.hide {
+    display: none;
+  }
+
+.leftSide {
+  width: 300px;
+  font-family: fantasy;
+  background-color: $second-color;
+  border-right: $divider-color solid 2px;
+  padding: 30px; 
+}
+
+.title {
+  height: 100px;
+  text-align: center;
+  border-radius: 0 30px 0 30px;
+  color: $primary-text-color;
+  padding: 20px 15px 10px 15px;
+  background-color: $first-color;
+  font-size: 40px;
+}
+
+.menu {
+  color: #333333;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.keisanSheet {
+  background-color: $fourth-color;
+  box-shadow: 0 2px 4px $divider-color;
+  color: #333333;
+  font-size: 20px;
+  padding: 10px 5px 5px;
+  margin-top: 20px;
+  display: flex;
+  &__space {
+    padding-left: 30px;
+  }
+  &__select {
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 3px;
+  }
+  &__submit {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  &__answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+}
+
+.sekigae {
+  color: #333333;
+  box-shadow: 0 2px 4px $divider-color;
+  padding: 10px 5px 5px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.rightSide {
+  width: calc( 100% - 300px );
+  background-color: #dddddd;
+}
+
+.header {
+  background-color: $first-color;
+  height: 80px;
+  display: flex;
+  border-bottom: $divider-color solid 1px;
+  padding: 10px 20px;
+}
+
+.appName{
+  width: 100%;
+  font-size: 36px;
+  text-align: left;
+  color: $primary-text-color;
+  padding: 10px;
+}
+
+.printBtns {
+  color: $primary-text-color;
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &__btn {
+    background-color: #add2c9;
+    margin-right: 10px;
+    padding: 5px;
+    border: $fourth-color solid 2px;
+    box-shadow: 0 3px 5px $divider-color;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+}
+
+.main {
+  margin: 30px;
+  padding: 20px;
+  background-color: $third-color;
+  color: $primary-text-color;
+  &__sheet {
+    margin-top: 50px;
+    display: flex;
+  }
+}
+
+.nameDate, .scoreTime {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 30px;
+  &__name, &__date, &__score, &__time {
+    font-size: 20px;
+    text-decoration-line: underline;
+  }
+}
+
+.mondai {
+  justify-content: space-around;
+  width: 50%;
+  padding-left: 15px;
+  font-size: 20px;
+  &__block {
+    display: flex;
+    height: 75px;
+  }
+  &__number {
+    margin-right: 10px;
+  }
+  &__siki {
+
+  }
+}
+
+.answer {
+  display: none;
+  color: $fourth-color;
+}
