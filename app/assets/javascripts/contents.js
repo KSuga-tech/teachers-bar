@@ -95,12 +95,20 @@ window.addEventListener("load", function () {
 
   // 答えの表示／非表示を切り替える機能
   let displayAnswer = document.getElementById("displayAnswer");
+  // 答えの表示
   displayAnswer.addEventListener("click", function () {
-    displayAnswer.setAttribute('value', '答え非表示');
+    if (displayAnswer.value == '答えの表示') {
+      displayAnswer.setAttribute('value', '答え非表示');
       let answer = document.querySelectorAll(".answer");
-      answer.forEach(function(aaa){
-        aaa.style.display = 'inline';
+      answer.forEach(function(displayAnswers){
+        displayAnswers.style.display = 'inline';
       });
+    } else {
+      displayAnswer.setAttribute('value', '答えの表示');
+      let answer = document.querySelectorAll(".answer");
+      answer.forEach(function(displayAnswers){
+        displayAnswers.style.display = 'none';
+      });
+    };
   });
-
 });
