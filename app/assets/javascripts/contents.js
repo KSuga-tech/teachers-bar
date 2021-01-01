@@ -30,6 +30,13 @@ window.addEventListener("load", function () {
     hideHeader.style.display = 'flex';
     changeRight.style.width = 'calc( 100% - 300px )';
   });
+  // 割り算を選択した時点で「答えの選択肢」が現れる。
+  let symbol0 = document.querySelector('#calc_symbol')
+  symbol0.addEventListener('change', warizanKotaeSyurui);
+
+  function warizanKotaeSyurui() {
+    console.log(symbol0.value)
+  }
 
   // 問題の生成機能,「答えの表示」ボタン表示
   let btn = document.getElementById("submit");
@@ -56,7 +63,8 @@ window.addEventListener("load", function () {
         let rand2 = Math.floor( Math.random() * (10 ** (num2 - 1) * 9) + 10 ** (num2 - 1));
         let rand3 = 0
 
-        // 引き算の時、答えが必ず0以上になるようにする。
+        // 引き算、または、同じ桁数同士の割り算の時、
+        // 答えが必ず0以上になるようにする。
         let divAns = document.getElementById('divAns');
         if (symbol == "-" || (symbol == "÷" && num1 == num2)) {
           divAns.style.display = 'none';
@@ -66,11 +74,11 @@ window.addEventListener("load", function () {
             rand1 = rand3;
           }
         // 割り算の時、答えの表示を選択するボタンが現われる。
-        } else if (symbol == "÷") {
-          divAns.style.display = 'block';
-        } else {
-          divAns.style.display = 'none';
-          }
+        // } else if (symbol == "÷") {
+        //   divAns.style.display = 'block';
+        // } else {
+        //   divAns.style.display = 'none';
+        //   }
 
         // 解答の生成
         let answers
@@ -121,24 +129,25 @@ window.addEventListener("load", function () {
         newElement.innerHTML += html;
       }
     }
-  });
+  };
 
   // 答えの表示／非表示を切り替える機能
   let displayAnswer = document.getElementById("displayAnswer");
   // 答えの表示
-  displayAnswer.addEventListener("click", function () {
-    if (displayAnswer.value == '答えの表示') {
-      displayAnswer.setAttribute('value', '答え非表示');
-      let answer = document.querySelectorAll(".answer");
-      answer.forEach(function(displayAnswers){
-        displayAnswers.style.display = 'inline';
-      });
-    } else {
-      displayAnswer.setAttribute('value', '答えの表示');
-      let answer = document.querySelectorAll(".answer");
-      answer.forEach(function(displayAnswers){
-        displayAnswers.style.display = 'none';
-      });
-    };
+    displayAnswer.addEventListener("click", function () {
+      if (displayAnswer.value == '答えの表示') {
+        displayAnswer.setAttribute('value', '答え非表示');
+        let answer = document.querySelectorAll(".answer");
+        answer.forEach(function(displayAnswers){
+          displayAnswers.style.display = 'inline';
+        });
+      } else {
+        displayAnswer.setAttribute('value', '答えの表示');
+        let answer = document.querySelectorAll(".answer");
+        answer.forEach(function(displayAnswers){
+          displayAnswers.style.display = 'none';
+        });
+      };
+    });
   });
 });
