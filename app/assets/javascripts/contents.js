@@ -32,26 +32,34 @@ window.addEventListener("load", function () {
   });
   // 割り算を選択した時点で「答えの選択肢」が現れる。
   let symbol0 = document.querySelector('#calc_symbol')
+  let divAns = document.getElementById('divAns');
   symbol0.addEventListener('change', warizanKotaeSyurui);
 
   function warizanKotaeSyurui() {
     console.log(symbol0.value)
+    if (symbol0.value == "÷") {
+      divAns.style.display = 'block';
+    } else {
+      divAns.style.display = 'none';
+    }
   }
 
   // 問題の生成機能,「答えの表示」ボタン表示
   let btn = document.getElementById("submit");
+  let answerBtn = document.querySelector(".keisanSheet__answer");
+  let divisionAns = document.querySelector("#divAns");
   btn.addEventListener("click", function () {
-    let answerBtn = document.querySelector(".keisanSheet__answer");
     answerBtn.style.display = 'inline-block';
+    answerBtn.setAttribute('value', "答えの表示")
     let num1 = document.getElementById("num1").value;
-    let symbol = document.getElementById("calc_symbol").value;
+    let symbol = symbol0.value;
     let num2 = document.getElementById("num2").value;
     let sheet = document.getElementById("main");
     sheet.innerHTML = '';
 
     // 問題を２列にする。
     for (let x = 0; x < 2; x++){
-     let newElement = document.createElement("div");
+      let newElement = document.createElement("div");
       let idNumber = "mondai" + x
       newElement.setAttribute("class", "mondai", "id", idNumber);
       sheet.appendChild(newElement);
@@ -65,21 +73,14 @@ window.addEventListener("load", function () {
 
         // 引き算、または、同じ桁数同士の割り算の時、
         // 答えが必ず0以上になるようにする。
-        let divAns = document.getElementById('divAns');
+
         if (symbol == "-" || (symbol == "÷" && num1 == num2)) {
-          divAns.style.display = 'none';
           if (rand1 < rand2) {
             rand3 = rand2;
             rand2 = rand1;
             rand1 = rand3;
           }
-        // 割り算の時、答えの表示を選択するボタンが現われる。
-        // } else if (symbol == "÷") {
-        //   divAns.style.display = 'block';
-        // } else {
-        //   divAns.style.display = 'none';
-        //   }
-
+        }
         // 解答の生成
         let answers
         switch(symbol) {
@@ -93,27 +94,22 @@ window.addEventListener("load", function () {
             answers = rand1 * rand2;
             break;
           default:
-            if ((rand1 % rand2) == 0) {
-              answers = Math.trunc(rand1 / rand2);
-            } else {
-              answers = Math.trunc(rand1 / rand2) + 'あまり' + (rand1 % rand2);
+            console.log(divisionAns.value);
+            switch (divisionAns.value) {
+              case '0':
+                if ((rand1 % rand2) == 0) {
+                  answers = Math.trunc(rand1 / rand2);
+                } else {
+                  answers = Math.trunc(rand1 / rand2) + 'あまり' + (rand1 % rand2);
+                }
+                break;
+              case '1':
+                let ans100 = rand1 / rand2 * 100
+                answers = Math.round(ans100) / 100;
+                break;
             }
-            break;
-
-        //   let divisionAns = document.querySelector("#divAns").value
-        //   console.log(divisionAns);
-        //   switch (divisionAns) {
-        //     case 0:
-        //       let surplus = rand1 % rand2
-        //       answers = rand1 / rand2;
-        //       break;
-
-        //     case 1:
-        //       answers = rand1 / rand2;
-        //       break;
         }
-          
-
+            
 
         // 問題と解答を表示する。
         let html = `
@@ -128,26 +124,28 @@ window.addEventListener("load", function () {
           `
         newElement.innerHTML += html;
       }
-    }
-  };
+    };
 
   // 答えの表示／非表示を切り替える機能
-  let displayAnswer = document.getElementById("displayAnswer");
+  // let displayAnswer = document.getElementById("displayAnswer");
   // 答えの表示
-    displayAnswer.addEventListener("click", function () {
-      if (displayAnswer.value == '答えの表示') {
-        displayAnswer.setAttribute('value', '答え非表示');
-        let answer = document.querySelectorAll(".answer");
-        answer.forEach(function(displayAnswers){
-          displayAnswers.style.display = 'inline';
-        });
-      } else {
-        displayAnswer.setAttribute('value', '答えの表示');
-        let answer = document.querySelectorAll(".answer");
-        answer.forEach(function(displayAnswers){
+    let answer = document.querySelectorAll(".answer");
+    answerBtn.addEventListener("click", switchBtn)
+    function switchBtn() {
+      switch (answerBtn.value) {
+        case "答えの表示":
+          answerBtn.setAttribute('value', "答え非表示");
+          answer.forEach(function(displayAnswers){
+            displayAnswers.style.display = 'inline';
+          });
+          break;
+        case "答え非表示":
+          answerBtn.setAttribute('value', "答えの表示");
+          answer.forEach(function(displayAnswers) {
           displayAnswers.style.display = 'none';
-        });
+          });
+          break;
       };
-    });
+    }
   });
 });
