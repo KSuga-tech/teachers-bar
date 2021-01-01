@@ -57,25 +57,55 @@ window.addEventListener("load", function () {
         let rand3 = 0
 
         // 引き算の時、答えが必ず0以上になるようにする。
-        if (symbol == "-") {
+        let divAns = document.getElementById('divAns');
+        if (symbol == "-" || (symbol == "÷" && num1 == num2)) {
+          divAns.style.display = 'none';
           if (rand1 < rand2) {
             rand3 = rand2;
             rand2 = rand1;
             rand1 = rand3;
           }
-        }
+        // 割り算の時、答えの表示を選択するボタンが現われる。
+        } else if (symbol == "÷") {
+          divAns.style.display = 'block';
+        } else {
+          divAns.style.display = 'none';
+          }
 
         // 解答の生成
-        let answers = 0
-        if (symbol == '+') {
-          answers = rand1 + rand2;
-        } else if (symbol == '-') {
-          answers = rand1 - rand2;
-        } else if (symbol == '×') {
-          answers = rand1 * rand2;
-        } else {
-          answers = rand1 / rand2;
+        let answers
+        switch(symbol) {
+          case '+':
+            answers = rand1 + rand2;
+            break;
+          case '-':
+            answers = rand1 - rand2;
+            break;
+          case '×':
+            answers = rand1 * rand2;
+            break;
+          default:
+            if ((rand1 % rand2) == 0) {
+              answers = Math.trunc(rand1 / rand2);
+            } else {
+              answers = Math.trunc(rand1 / rand2) + 'あまり' + (rand1 % rand2);
+            }
+            break;
+
+        //   let divisionAns = document.querySelector("#divAns").value
+        //   console.log(divisionAns);
+        //   switch (divisionAns) {
+        //     case 0:
+        //       let surplus = rand1 % rand2
+        //       answers = rand1 / rand2;
+        //       break;
+
+        //     case 1:
+        //       answers = rand1 / rand2;
+        //       break;
         }
+          
+
 
         // 問題と解答を表示する。
         let html = `
