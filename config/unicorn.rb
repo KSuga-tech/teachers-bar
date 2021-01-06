@@ -12,7 +12,7 @@ pid "#{app_path}/tmp/pids/unicorn.pid"
 
 #ポート番号を指定
 # listen "#{app_path}/tmp/sockets/unicorn.sock"
-# File.expand_path('#{app_path}/tmp/sockets/unicorn.sock', __FILE__)
+File.expand_path('#{app_path}/tmp/sockets/unicorn.sock', __FILE__)
 listen 3000
 
 #エラーのログを記録するファイルを指定
