@@ -30,6 +30,7 @@ window.addEventListener("load", function () {
     hideHeader.style.display = 'flex';
     changeRight.style.width = 'calc( 100% - 300px )';
   });
+
   // 割り算を選択した時点で「答えの選択肢」が現れる。
   let symbol0 = document.querySelector('#calc_symbol')
   let divAns = document.getElementById('divAns');
@@ -46,11 +47,12 @@ window.addEventListener("load", function () {
 
   // 問題の生成機能,「答えの表示」ボタン表示
   let btn = document.getElementById("submit");
-  let answerBtn = document.querySelector(".keisanSheet__answer");
   let divisionAns = document.querySelector("#divAns");
+  let answerBtn = document.querySelector(".keisanSheet__answer");
   btn.addEventListener("click", function () {
-    answerBtn.style.display = 'inline-block';
-    answerBtn.setAttribute('value', "答えの表示")
+
+    let y = 0;
+    answerBtn.setAttribute('value', "答えの表示");
     let num1 = document.getElementById("num1").value;
     let symbol = symbol0.value;
     let num2 = document.getElementById("num2").value;
@@ -130,22 +132,22 @@ window.addEventListener("load", function () {
   // let displayAnswer = document.getElementById("displayAnswer");
   // 答えの表示
     let answer = document.querySelectorAll(".answer");
+    answerBtn.disabled = false;
     answerBtn.addEventListener("click", switchBtn)
     function switchBtn() {
-      switch (answerBtn.value) {
-        case "答えの表示":
-          answerBtn.setAttribute('value', "答え非表示");
-          answer.forEach(function(displayAnswers){
-            displayAnswers.style.display = 'inline';
-          });
-          break;
-        case "答え非表示":
-          answerBtn.setAttribute('value', "答えの表示");
-          answer.forEach(function(displayAnswers) {
+      if (y == 0) {
+        this.setAttribute('value', "答え非表示");
+        answer.forEach(function(displayAnswers){
+          displayAnswers.style.display = 'inline';
+        });
+        y = 1;
+      } else if (y == 1) {
+        this.setAttribute('value', "答えの表示");
+        answer.forEach(function(displayAnswers) {
           displayAnswers.style.display = 'none';
-          });
-          break;
-      };
-    }
+        });
+        y = 0;
+      }
+    };
   });
 });
