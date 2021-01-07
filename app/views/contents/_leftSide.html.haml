@@ -3,7 +3,7 @@
     Teacher's BAR
   .menu
     menu
-    %form.keisanSheet{ id: "sheet" } ー 計算プリント作成
+    %form.keisanSheet{ id: "sheet" }計プリメーカー(シンプル)
     .keisanSheet__space
       %select.keisanSheet__select{ id: "num1" }
         %option{ value: 1 }1桁
@@ -25,6 +25,7 @@
       %select.keisanSheet__divisionAns{ id: "divAns" }
         %option{ value: 0, selected: "selected" }あまりを出す
         %option{ value: 1}四捨五入(小数第2位)
+    .keisanSheet__button
       %input.keisanSheet__submit{ id: "submit", type: "button", value: "問題作成"}
       %input.keisanSheet__answer{ id: "displayAnswer", type: "button", value: "答えの表示", disabled: true}
 

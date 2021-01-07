@@ -19,7 +19,7 @@
   }
 
 .leftSide {
-  width: 300px;
+  width: 350px;
   font-family: fantasy;
   background-color: $second-color;
   border-right: $divider-color solid 2px;
@@ -45,34 +45,56 @@
 .keisanSheet {
   background-color: $fourth-color;
   box-shadow: 0 2px 4px $divider-color;
+  border-radius: 5px;
   color: #333333;
-  font-size: 20px;
-  padding: 10px 5px 5px;
+  font-style: "Hiragino Maru Gothic ProN W4", "Meiryo UI",sans-serif;
+  font-size: 22px;
+  text-align: center;
+  padding: 15px 10px 10px;
   margin-top: 20px;
-  display: flex;
+
   &__space {
     padding-left: 30px;
+    display: flex;
+    column-count: 2;
+    flex-wrap: wrap;
+
   }
   &__select {
-    font-size: 20px;
+    justify-content: space-around;
+    text-align-last: center;
+    border-radius: 8px;
+    border-width: 2px;
+    margin-right: 10px;
+    min-width: 70px;
+    font-size: 24px;
     margin-top: 10px;
     padding: 3px;
+
   }
+
   &__divisionAns{
     display: none;
+    border-width: 2px;
+    padding: 3px;
+    border-radius: 8px;
+    text-align-last: center;
     margin-top: 10px;
+    font-size: 22px;
+  }
+  
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__submit, &__answer {
+    display: block;
+    border-radius: 8px;
+    margin: 10px 5px;
     font-size: 20px;
   }
-  &__submit {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  &__answer {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 16px;
-  }
+ 
 }
 
 .sekigae {
@@ -84,7 +106,7 @@
 }
 
 .rightSide {
-  width: calc( 100% - 300px );
+  width: calc( 100% - 350px );
   background-color: #dddddd;
 }
 
@@ -162,5 +184,5 @@
 
 .answer {
   display: none;
-  color: $fourth-color;
+  color: red;
 }
