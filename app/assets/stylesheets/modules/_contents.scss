@@ -50,7 +50,7 @@
   font-style: "Hiragino Maru Gothic ProN W4", "Meiryo UI",sans-serif;
   font-size: 22px;
   text-align: center;
-  padding: 15px 10px 10px;
+  padding: 15px 10px 5px;
   margin-top: 20px;
 
   &__space {
@@ -96,7 +96,26 @@
   }
  
 }
+ul {
+  margin: 30px;
 
+}
+
+li {
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+  line-height: 110%;
+}
+
+.bigger {
+  font-size: x-large;
+}
+
+.red {
+  color: $fourth-color;
+}
 .sekigae {
   color: #333333;
   box-shadow: 0 2px 4px $divider-color;

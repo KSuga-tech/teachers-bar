@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
   });
 
   // 割り算を選択した時点で「答えの選択肢」が現れる。
-  let symbol0 = document.querySelector('#calc_symbol')
+  let symbol0 = document.querySelector('#calc_symbol');
   let divAns = document.getElementById('divAns');
   symbol0.addEventListener('change', warizanKotaeSyurui);
 
@@ -151,3 +151,20 @@ window.addEventListener("load", function () {
     };
   });
 });
+// 方針が決まるまでここに置いておく。
+//  <div class="nameDate">
+//          <div class="nameDate__name">
+//            なまえ　　　　　　　　
+//          </div>
+//          <div class="nameDate__date">
+//            　　月　　日(　　)
+//          </div>
+//        </div>
+//        <div class="scoreTime">
+//          <div class="scoreTime__time">
+//            タイム　　　分　　　秒
+//          </div>
+//          <div class="scoreTime__score">
+//            とく点　　　　　点
+//          </div>
+//        </div>
