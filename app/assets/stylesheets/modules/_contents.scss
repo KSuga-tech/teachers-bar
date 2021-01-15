@@ -205,3 +205,16 @@ li {
   display: none;
   color: red;
 }
+
+.footer {
+  background-color: $first-color;
+  height: 80px;
+  border-bottom: $divider-color solid 1px;
+  padding: 10px 20px;
+  .copyright {
+
+  }
+  .twitter {
+    
+  }
+}
