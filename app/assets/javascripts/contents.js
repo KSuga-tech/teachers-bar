@@ -16,10 +16,12 @@ window.addEventListener("load", function () {
     // 印刷ボタンを押すとプリント部分以外が非表示になる。
     let hideLeft = document.querySelector(".leftSide");
     let hideHeader = document.querySelector(".header");
+    let hideFooter = document.querySelector(".footer");
     let changeRight = document.querySelector(".rightSide");
     let hide = document.getElementsByClassName("hide");
     hideLeft.classList.add(hide[0].classList);
     hideHeader.style.display = 'none';
+    hideFooter.style.display = 'none';
     changeRight.style.width = '100%';
 
     // プリントダイアログが表示される。
@@ -28,6 +30,7 @@ window.addEventListener("load", function () {
     // プリントダイアログを終了すると、元のレイアウトに戻る。
     hideLeft.classList.remove(hide[0].classList);
     hideHeader.style.display = 'flex';
+    hideFooter.style.display = 'block';
     changeRight.style.width = 'calc( 100% - 300px )';
   });
 
