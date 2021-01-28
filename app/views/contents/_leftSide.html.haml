@@ -29,6 +29,32 @@
       %input.keisanSheet__submit{ id: "submit", type: "button", value: "問題作成"}
       %input.keisanSheet__answer{ id: "displayAnswer", type: "button", value: "答えの表示", disabled: true}
 
+    %form.keisanSheet{ id: "sheet" }掛け算の九九計プリメーカー(スタンダード)
+    .keisanSheet__space
+      %select.keisanSheet__select{ id: "num1" }
+        %option{ value: 1, selected: "selected" }1の段
+        %option{ value: 2 }2の段
+        %option{ value: 3 }3の段
+        %option{ value: 4 }4の段
+        %option{ value: 5 }5の段
+        %option{ value: 6 }6の段
+        %option{ value: 7 }7の段
+        %option{ value: 8 }8の段
+        %option{ value: 9 }9の段
+        %option{ value: 10 }10の段
+        %option{ value: 0 }複数の段
+
+      .keisanSheet__select{ id: "calc_symbol", value: "×" }× 
+      
+      %select.keisanSheet__select{ id: "num2" }
+        %option{ value: 1 }1~9(順番)
+        %option{ value: 2, selected: "selected" }1~9(ランダム)
+        %option{ value: 3 }0を含む
+        %option{ value: 4 }10を含む
+    .keisanSheet__button
+      %input.keisanSheet__submit{ id: "submit", type: "button", value: "問題作成"}
+      %input.keisanSheet__answer{ id: "displayAnswer", type: "button", value: "答えの表示", disabled: true}
+
     -# .sekigae
     -#   ＋ 歴史人物クイズ
     -# .sekigae
