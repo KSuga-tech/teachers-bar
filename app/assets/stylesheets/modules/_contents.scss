@@ -96,6 +96,34 @@
   }
  
 }
+
+.standardMenu {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.multiSheet {
+  &__select {
+    justify-content: space-around;
+    text-align-last: center;
+    border-radius: 8px;
+    border-width: 2px;
+    margin-right: 10px;
+    min-width: 70px;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 3px;
+  }
+}
+
+.multiSymbol {
+  position: relative;
+  top: 10px;
+  margin-right: 8px;
+  font-size: 36px;
+}
+
 ul {
   margin: 30px;
 
