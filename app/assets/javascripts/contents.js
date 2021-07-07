@@ -99,7 +99,6 @@ window.addEventListener("load", function () {
             answers = rand1 * rand2;
             break;
           default:
-            console.log(divisionAns.value);
             switch (divisionAns.value) {
               case '0':
                 if ((rand1 % rand2) == 0) {
